@@ -9,7 +9,7 @@ Installation
 pip install git+git://github.com/willemallan/django-bancodobrasil.git
 
 
-Uso
+Utilizando
 -----
 
 # settings.py
@@ -24,7 +24,9 @@ Uso
 
 
 -----
-# views.py example 1
+# views.py
+
+example 1
 
     from bancodobrasil.models import BB
 
@@ -50,7 +52,9 @@ Uso
 
 
 -----
-# views.py example 2
+# views.py
+
+example 2
 
     from bancodobrasil.models import BB
 
