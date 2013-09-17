@@ -1,0 +1,51 @@
+<form action="{{ url }}" method="post" name="pagamento">
+
+    <!-- idConv 6 digitos - Código do convênio de Comércio Eletrônico fornecido pelo Banco  -->
+    <input type="hidden" name="idConv" value="{{ bb.idConv }}">
+
+    <!-- refTran MAXIMO 17 digitos -->
+    <!-- 7 digitos - primeiros número do convênio de cobrança -->
+    <!-- 10 digitos livres identificação do produto id do pedido -->
+    <input type="hidden" name="refTran" value="{{ bb.getRefTran }}">
+
+    <!-- valor  17 digitos 195,72 exemplo 19572 -->
+    <input type="hidden" name="valor" value="{{ bb.valor }}">
+
+    <!-- dtVenc 8 digitos DDMMAAAA -->
+    <input type="hidden" name="dtVenc" value="{{ bb.dtVenc }}">
+
+    <!-- tpPagamento -->
+    <!-- 0 – Todas as modalidades contratadas pelo convenente -->
+    <!-- 2 – Boleto bancário -->
+    <!-- 21 – 2ª Via de boleto bancário, já gerado anteriormente -->
+    <!-- 3 – Débito em Conta via Internet – PF e PJ -->
+    <!-- 5 – BB Crediário Internet -->
+    <!-- 7 - Débito em Conta via Internet PF -->
+    <input type="hidden" name="tpPagamento" value="{{ bb.tpPagamento }}">
+
+    <!-- urlRetorno - 60 digitos - https://www.site.com.br/retorno/ -->
+    <input type="hidden" name="urlRetorno" value="{{ bb.urlRetorno }}">
+
+    <!-- urlInforma - 60 digitos - https://www.site.com.br/informa/ -->
+    <input type="hidden" name="urlInforma" value="{{ bb.urlInforma }}">
+
+    <!-- nome - 60 digitos - Nome do comprador, que será apresentado no boleto de cobrança. -->
+    <input type="hidden" name="nome" value="{{ bb.nome }}">
+
+    <!-- endereco - 60 digitos - Endereço do comprador, que será apresentado no boleto de cobrança. -->
+    <input type="hidden" name="endereco" value="{{ bb.endereco }}">
+
+    <!-- cidade - 18 digitos - cidade do comprador -->
+    <input type="hidden" name="cidade" value="{{ bb.cidade }}">
+
+    <!-- uf - 2 digitos - sigla do estado -->
+    <input type="hidden" name="uf" value="{{ bb.uf }}">
+
+    <!-- cep - 8 digitos - 14000100 -->
+    <input type="hidden" name="cep" value="{{ bb.cep }}">
+
+    <!-- msgLoja - 480 digitos - Instruções do cedente, que serão apresentadas no boleto de cobrança.  -->
+    <input type="hidden" name="msgLoja" value="{{ bb.msgLoja }}">
+
+    <input type="image" src="{{ STATIC_URL }}images/bancodobrasil/bb_logo.jpg">
+</form>

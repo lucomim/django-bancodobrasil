@@ -1,0 +1,2 @@
+recursive-include bancodobrasil *.html *.po *.mo *.js *.css *.png *.ico
+
