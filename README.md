@@ -76,7 +76,9 @@ Uso
 
 
 -----
-# urls.py não precisa importar apenas para visualizar os exemplos
+# urls.py
+
+não precisa importar apenas para visualizar os exemplos
 
     from bancodobrasil.urls import bancodobrasil_urlpatterns
     urlpatterns += bancodobrasil_urlpatterns()
