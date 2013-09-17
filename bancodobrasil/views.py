@@ -7,7 +7,7 @@ from bancodobrasil.models import BB
 def example1(request):
 
     bb = BB(
-        refTran='151',
+        refTran='0000000001',
         valor='100',
         tpPagamento=3,
         dtVenc=u'10102014',
@@ -29,7 +29,7 @@ def example1(request):
 def example2(request):
 
     bb = BB(
-        refTran='151',
+        refTran='0000000001',
         valor='100',
         tpPagamento=3,
         dtVenc=u'10102014',

@@ -18,6 +18,14 @@ class BB(models.Model):
         u'Código do convênio', max_length=6, default=settings.BB_ID_CONV,
         help_text=u'Código do convênio de Comércio Eletrônico fornecido pelo Banco'
     )
+    idConvRecebimento = models.PositiveIntegerField(
+        u'Código do convênio de recebimento', max_length=6, default=settings.BB_ID_CONV_RECEBIMENTO,
+        help_text=u'Código do convênio de recebimento de Comércio Eletrônico fornecido pelo Banco'
+    )
+    idConvCobranca = models.PositiveIntegerField(
+        u'Código do convênio de cobrança', max_length=7, default=settings.BB_ID_CONV_COBRANCA,
+        help_text=u'Código do convênio de cobrança de Comércio Eletrônico fornecido pelo Banco'
+    )
     refTran = models.PositiveIntegerField(
         u'Referencia da transação', max_length=17,
         help_text=u'7 digitos - primeiros número do convênio de cobrança e 10 digitos livres identificação do produto id do pedido'
@@ -75,7 +83,7 @@ class BB(models.Model):
 
 
     def getRefTran(self):
-        return "%s%s" % ( self.idConv, self.refTran)
+        return "%s%s" % ( self.idConvCobranca, self.refTran)
 
 
     def VARS(self):
