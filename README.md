@@ -31,7 +31,7 @@ example 1
     from bancodobrasil.models import BB
 
     bb = BB(
-        refTran=123456,
+        refTran='0000000001',
         valor='100',
         tpPagamento=3,
         dtVenc=u'10102014',
@@ -59,7 +59,7 @@ example 2
     from bancodobrasil.models import BB
 
     bb = BB(
-        refTran=123456,
+        refTran='0000000001',
         valor='100',
         tpPagamento=3,
         dtVenc=u'10102014',
