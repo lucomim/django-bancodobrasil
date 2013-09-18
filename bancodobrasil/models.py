@@ -84,7 +84,17 @@ class BB(models.Model):
 
 
     def getRefTran(self):
-        return "%s%s" % ( self.idConvCobranca, self.refTran)
+        # coloca os 0 antes do codigo do pedido
+        refTran = '%s' % self.refTran
+        refTran = refTran.zfill(10)
+        return "%s%s" % ( self.idConvCobranca, refTran)
+
+    def getData(self):
+        import datetime
+        # aumenta o prazo de dias na data da compra apartir do settings
+        data_venc = self.dtVenc + datetime.timedelta(days=settings.BB_DIAS_VENCIMENTO)
+        data_venc = '%s%s%s' % (('%s' % data_venc.day).zfill(2), ('%s' % data_venc.month).zfill(2), data_venc.year)
+        return data_venc
 
 
     def VARS(self):
@@ -93,7 +103,7 @@ class BB(models.Model):
                 'refTran': self.getRefTran(),
                 'valor': self.valor,
                 'tpPagamento': self.tpPagamento,
-                'dtVenc': self.dtVenc,
+                'dtVenc': self.getData(),
                 'urlRetorno': self.urlRetorno,
                 'urlInforma': self.urlInforma,
                 'nome': retiraAcento(1, unicode(self.nome)),

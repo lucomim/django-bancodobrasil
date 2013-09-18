@@ -33,10 +33,10 @@ example 1
     from bancodobrasil.models import BB
 
     bb = BB(
-        refTran='0000000001',
+        refTran='1', # id do pedido
         valor='100',
         tpPagamento=3,
-        dtVenc=u'10102014',
+        dtVenc=data, # tipo data
         nome=u'Willem Allan',
         endereco=u'Rua Franca',
         cidade=u'Ribeirão Preto',
@@ -60,10 +60,10 @@ example 2
     from bancodobrasil.models import BB
 
     bb = BB(
-        refTran='0000000001',
+        refTran='1', # id do pedido
         valor='100',
         tpPagamento=3,
-        dtVenc=u'10102014',
+        dtVenc=data, # tipo data
         nome=u'Willem Allan',
         endereco=u'Rua Franca',
         cidade=u'Ribeirão Preto',
