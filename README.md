@@ -15,14 +15,14 @@ Utilizando
 # settings.py
 
     BB_DIAS_VENCIMENTO = 2
-    BB_ID_CONV = '309784'
-    BB_ID_CONV_RECEBIMENTO = '111799'
-    BB_ID_CONV_COBRANCA = '2351744'
+    BB_ID_CONV = '123456'
+    BB_ID_CONV_RECEBIMENTO = '123456'
+    BB_ID_CONV_COBRANCA = '1234567'
     BB_URL_FINALIZA_EXAMPLE1 = '/bancodobrasil/example1/'
     BB_URL_FINALIZA_EXAMPLE2 = '/bancodobrasil/example2/'
     BB_URL_BB_PAGAMENTO = 'https://mpag.bb.com.br/site/mpag/'
-    BB_URL_RETORNO = 'https://www.spacetennis.com.br/retorno/'
-    BB_URL_INFORMA = 'https://www.spacetennis.com.br/informa/'
+    BB_URL_RETORNO = 'https://www.loja.com.br/retorno/'
+    BB_URL_INFORMA = 'https://www.loja.com.br/informa/'
     BB_MSG_LOJA = u'Instruções do cedente, que serão apresentadas no boleto de cobrança.'
 
 -----
