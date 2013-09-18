@@ -15,8 +15,7 @@ def example1(request):
         endereco=u'Rua Franca',
         cidade=u'Ribeirão Preto',
         uf=u'SP',
-        cep=u'14090250',
-        msgLoja=u'lol lol lol'
+        cep=u'14090250'
     )
 
     bb = bb.form()
@@ -37,8 +36,7 @@ def example2(request):
         endereco=u'Rua Franca',
         cidade=u'Ribeirão Preto',
         uf=u'SP',
-        cep=u'14090250',
-        msgLoja=u'lol lol lol'
+        cep=u'14090250'
     )
 
     bb = bb.envia()

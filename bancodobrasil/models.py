@@ -68,7 +68,8 @@ class BB(models.Model):
         u'CEP', max_length=8, help_text=u'14090150'
     )
     msgLoja = models.TextField(
-        help_text='Instruções do cedente, que serão apresentadas no boleto de cobrança.'
+        help_text='Instruções do cedente, que serão apresentadas no boleto de cobrança.',
+        default=settings.BB_MSG_LOJA
     )
 
 
