@@ -71,6 +71,13 @@ class BB(models.Model):
         help_text='Instruções do cedente, que serão apresentadas no boleto de cobrança.',
         default=settings.BB_MSG_LOJA
     )
+    formato = models.CharField(
+        u'Formato do retorno', max_length=2,
+        help_text='Formato de retorno dos formulários de consulta submetidos ao banco: \n01 – HTML (Retorno visual em página do Banco para controle manual). \n02 – XML (Retorno em tag XML). \n03 – String (Retorno em forma de String).',
+    )
+    situacao = models.CharField(
+        u'Situação do pedido', max_length=2, null=True, blank=True
+    )
 
 
     class Meta:
@@ -135,3 +142,40 @@ class BB(models.Model):
             'STATIC_URL': settings.STATIC_URL
         })
         return t.render(f)
+
+
+    def setSituacao(self, xml):
+        from xml.dom import minidom
+        dom = minidom.parseString(xml)
+        try:
+            situacao = dom.getElementsByTagName("ENTRADA")[4].getAttribute('valor')
+        except:
+            situacao = None
+        self.situacao = u'%s' % situacao
+
+
+    def sonda(self):
+
+        '''
+            Formato de retorno dos formulários de consulta submetidos ao banco:
+            01 – HTML (Retorno visual em página do Banco para controle manual).
+            02 – XML (Retorno em tag XML).
+            03 – String (Retorno em forma de String).
+        '''
+        VARS = {
+                'idConv': self.idConv,
+                'refTran': self.getRefTran(),
+                'valorSonda': self.valor,
+                'formato': self.formato
+        }
+
+        import urllib
+        import urllib2
+        params = urllib.urlencode(VARS)
+        req = urllib2.Request(settings.BB_URL_BB_SONDA, params)
+        response = urllib2.urlopen(req)
+        retorno = response.read()
+        retorno = (retorno.lstrip()).rstrip()
+        if self.formato == '02':
+            self.setSituacao(retorno)
+        return retorno

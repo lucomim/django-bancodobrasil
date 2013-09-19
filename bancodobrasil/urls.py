@@ -11,9 +11,11 @@ def bancodobrasil_urlpatterns():
     """
     url_example1 = settings.BB_URL_FINALIZA_EXAMPLE1.lstrip('/')
     url_example2 = settings.BB_URL_FINALIZA_EXAMPLE2.lstrip('/')
+    url_sonda = settings.BB_URL_FINALIZA_SONDA.lstrip('/')
     urlpatterns = patterns('bancodobrasil.views',
         url(r'^%s$' % url_example1, 'example1', name='example1'),
         url(r'^%s$' % url_example2, 'example2', name='example2'),
+        url(r'^%s$' % url_sonda, 'sonda', name='sonda'),
     )
     return urlpatterns
 
